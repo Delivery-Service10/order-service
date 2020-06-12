@@ -1,11 +1,9 @@
 from flask import Blueprint, request, jsonify
 from models import db, Order, OrderItem
-from json import dumps
 import uuid
 import datetime
 import helper_functions
 import simplejson as json
-# import helper_functions
 
 order_api = Blueprint('order_api', __name__)
 
