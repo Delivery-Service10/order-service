@@ -3,6 +3,7 @@ from models import db, Order, OrderItem
 from json import dumps
 import uuid
 import datetime
+import helper_functions
 import simplejson as json
 # import helper_functions
 
@@ -11,6 +12,7 @@ order_api = Blueprint('order_api', __name__)
 
 @order_api.route("/order/", methods=['POST', 'PUT'])
 def add_order_item():
+
     data = request.get_json()
     products = data['products']
     total_price = 0
@@ -44,3 +46,14 @@ def add_order_item():
         db.session.commit()
 
     return jsonify({'message': 'order created'})
+
+
+@order_api.route('/order/', methods=['GET'])
+def get_order():
+    data = request.get_json()
+    order = Order.query.filter_by(public_id=data['order_id']).first()
+    order_items = OrderItem.query.filter_by(order_obj=order).all()
+    return jsonify({'Order_items': helper_functions.combine_results(order_items)})
+
+
+

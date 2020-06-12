@@ -1,0 +1,16 @@
+{
+	"customer_id":"dfbd8926-9a21-407b-9349-98e9f892d52a",
+	"store_id": "17ca59a6-4e28-4a4c-b160-a23033dad7af",
+	"payment_method":"Visa",
+	"payment_confirmation_id":"random confirmation",
+
+
+	"products":
+	[
+    	{
+    	"product_id":"1463f90a-5cf8-440c-b818-b3cab4e2cf21",
+    	"quantity": 3,
+    	"price" : 8.00
+    	}
+    ]
+}
